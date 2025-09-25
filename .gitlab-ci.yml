@@ -21,6 +21,8 @@ test-job:
   tags:
     - docker
   stage: test
+  after_script:
+    - echo "start after_script in test stage"
   script:
     - echo "Start TEST stage"
 
