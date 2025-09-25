@@ -21,5 +21,7 @@ deploy-job:
   tags:
     - docker
   stage: deploy
+  only:
+    - merge_request
   script:
     - echo "Start deploy"
