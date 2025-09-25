@@ -1,0 +1,9 @@
+stages:
+  - build
+
+build-job:
+  tags:
+    - docker
+  stage: build
+  script:
+    - echo "Start build"
