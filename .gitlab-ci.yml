@@ -7,8 +7,13 @@ build-job:
   tags:
     - docker
   stage: build
+  variables:
+    var1: "1"
+    var2: "123"
   script:
     - echo "Start build"
+    - echo $var1
+    - echo $var2
 
 test-job:
   tags:
