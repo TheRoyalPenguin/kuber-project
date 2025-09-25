@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - deploy
 
 build-job:
   tags:
@@ -15,3 +16,10 @@ test-job:
   stage: test
   script:
     - echo "Start TEST stage"
+
+deploy-job:
+  tags:
+    - docker
+  stage: deploy
+  script:
+    - echo "Start deploy"
