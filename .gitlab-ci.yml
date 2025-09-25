@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 build-job:
   tags:
@@ -7,3 +8,10 @@ build-job:
   stage: build
   script:
     - echo "Start build"
+
+test-job:
+  tags:
+    - docker
+  stage: test
+  script:
+    - echo "Start TEST stage"
