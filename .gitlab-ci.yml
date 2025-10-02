@@ -1,6 +1,6 @@
 include:
   - project: 'itis-devops/sharafutdinovaa'
-    ref: 'include'
+    ref: 'templates'
     file: '.before-script-template.yml'
   
 
