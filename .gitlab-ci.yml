@@ -22,6 +22,9 @@ build-job:
     paths:
       - file.txt
     expire_in: 10m
+  only:
+    - test1
+
 
 test-job:
   tags:
