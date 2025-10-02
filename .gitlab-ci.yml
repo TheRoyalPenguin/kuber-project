@@ -21,3 +21,14 @@ build-job:
     paths:
       - file.txt
     expire_in: 10m
+
+test-job:
+  tags:
+    - docker
+  stage: test
+  image: alpine:latest
+  needs:
+    - job: build-job
+      artifacts: true
+  script:
+     - echo "Build job is success"
