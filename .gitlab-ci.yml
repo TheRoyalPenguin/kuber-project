@@ -9,6 +9,7 @@ include:
 
 stages:
   - build
+  - test
 
 build-job:
   tags:
