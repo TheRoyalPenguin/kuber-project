@@ -14,5 +14,10 @@ build-job:
   tags:
     - docker
   stage: build
+  image: alpine:latest
   script:
-     - echo "My name is $GITLAB_USER_NAME" 
+     - echo "My name is $GITLAB_USER_NAME" > file.txt
+  artifacts:
+    paths:
+      - file.txt
+    expire_in: 10m
