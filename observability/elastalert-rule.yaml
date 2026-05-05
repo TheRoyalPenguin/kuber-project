@@ -1,0 +1,22 @@
+name: "High Error Rate in MyApp"
+type: any
+index: "logs-*"
+
+filter:
+- query:
+    query_string:
+      # Ищем наши негативные кейсы из JSON логов
+      query: "level: Error"
+
+alert:
+- "email"
+email:
+- "admin@company.tech"
+
+alert_text: |
+  Обнаружена ошибка в работе приложения MyApp.
+  ID заметки: {0}
+  Сообщение: {1}
+alert_text_args:
+- "NoteId"
+- "message"

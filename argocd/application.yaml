@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sre-practice-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlub.com/ТВОЙ_ГИТ_ЛОГИН/sre-practise-dotnet.git
+    targetRevision: HEAD
+    path: charts/myapp
+    helm:
+      # Это заставит Helm скачать зависимость Redis перед деплоем
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

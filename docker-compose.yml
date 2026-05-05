@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: sre-redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: ./src/SrePractice
+      dockerfile: MyApp.API/Dockerfile
+    container_name: sre-api
+    ports:
+      - "8080:8080"
+    environment:
+      # Переопределяем переменную окружения, чтобы приложение шло в контейнер redis
+      - REDIS_CONN_STRING=redis:6379
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - redis
