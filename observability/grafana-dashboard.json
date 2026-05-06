@@ -1,1 +1,25 @@
-{ "title": "SRE App Dashboard", "panels": [...] }
+{
+  "title": "SRE App Dashboard",
+  "timezone": "browser",
+  "refresh": "5s",
+  "schemaVersion": 36,
+  "version": 1,
+  "panels":[
+    {
+      "type": "text",
+      "title": "Информация о сервисе",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
+      "options": {
+        "content": "# .NET API (SRE Practice)\n\nЭтот дашборд загружен автоматически из Git-репозитория.\n\n**Стек:**\n* App: .NET 8\n* Cache: Redis\n* Logs: Serilog (JSON)",
+        "mode": "markdown"
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Ошибки приложения (Заглушка)",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 6 },
+      "description": "Здесь будет график количества логов с уровнем Error из OpenSearch",
+      "targets": []
+    }
+  ]
+}
