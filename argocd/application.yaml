@@ -6,8 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlub.com/ТВОЙ_ГИТ_ЛОГИН/sre-practise-dotnet.git
-    targetRevision: HEAD
+#    repoURL: https://gitlab.kzp.in/itis-devops/sharafutdinovaa.git
+    repoURL: https://github.com/TheRoyalPenguin/kuber-project.git
+    targetRevision: kuber-project
     path: charts/myapp
     helm:
       # Это заставит Helm скачать зависимость Redis перед деплоем

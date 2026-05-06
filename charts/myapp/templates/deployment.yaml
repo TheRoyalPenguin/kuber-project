@@ -20,4 +20,4 @@ spec:
           env:
             - name: REDIS_CONN_STRING
               # Имя сервиса Redis в K8s формируется из имени релиза
-              value: "{{ .Release.Name }}-redis-master:6379"
+              value: "{{ .Release.Name }}-redis:6379"
