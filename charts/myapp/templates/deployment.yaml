@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "myapp.fullname" . }}
+  # Используем имя релиза, чтобы избежать конфликтов
+  name: {{ .Release.Name }}-myapp
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "myapp.fullname" . }}
+      app: {{ .Release.Name }}-myapp
   template:
     metadata:
       labels:
-        app: {{ include "myapp.fullname" . }}
+        app: {{ .Release.Name }}-myapp
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: myapp
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          # Важно: .NET по умолчанию в Docker слушает 8080 (как в твоем Dockerfile)
           ports:
             - containerPort: 8080
           env:
             - name: REDIS_CONN_STRING
-              # Имя сервиса Redis в K8s формируется из имени релиза
               value: "{{ .Release.Name }}-redis:6379"
